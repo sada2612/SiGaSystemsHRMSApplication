@@ -1,6 +1,6 @@
-﻿using Siga_Hrms.Data.Model;
+﻿using SiGaHRMS.Data.Model;
 
-namespace Siga_Hrms.ApiService.Interfaces;
+namespace SiGaHRMS.ApiService.Interfaces;
 
 /// <summary>
 /// User service interface to perform Add, Update, and delete funtionality.
@@ -42,11 +42,4 @@ public interface IUserService
     /// <returns>Returns list of user</returns>
     public List<User> GetAllUsers();
 
-    /// <summary>
-    /// VerifyUserAsync method verify user
-    /// </summary>
-    /// <param name="userName"></param>
-    /// <param name="password"></param>
-    /// <returns>Returns bool result</returns>
-    public Task<bool> VerifyUserAsync(string userName, string password);
 }

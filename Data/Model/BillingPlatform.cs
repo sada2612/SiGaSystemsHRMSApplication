@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SiGaHRMS.Data.Model.Entity;
+using System.ComponentModel.DataAnnotations;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class BillingPlatform
+public class BillingPlatform : FullAuditedEntity
 {
     [Key]
     public int BillingPlatformId { get; set; }

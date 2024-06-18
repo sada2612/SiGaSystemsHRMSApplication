@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using SiGaHRMS.Data.Model.Entity;
+using SiGaHRMS.Data.Model.Enum;
 using System.ComponentModel.DataAnnotations;
-using Siga_Hrms.Data.Enum;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class Project
+public class Project : FullAuditedEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -27,7 +28,7 @@ public class Project
 
     [MaxLength(50)]
     public BillingType BillingType { get; set; }
-    
+
     public string Status { get; set; }
 
     public int ClientId { get; set; }

@@ -1,9 +1,10 @@
-﻿using Siga_Hrms.Data.Enum;
+﻿using SiGaHRMS.Data.Model.Entity;
+using SiGaHRMS.Data.Model.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class Client
+public class Client : FullAuditedEntity
 {
     [Key]
     public int ClientId { get; set; }

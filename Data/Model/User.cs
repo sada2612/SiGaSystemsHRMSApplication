@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SiGaHRMS.Data.Model.Entity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class User
+public class User : FullAuditedEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,19 +22,6 @@ public class User
 
     public bool IsActive { get; set; }
 
-    public bool IsDeleted { get; set; }
-
-    public long CreatedBy { get; set; }
-
-    public DateTime CreatedDateTime { get; set; } = DateTime.Now;
-
-    public long? LastModifiedBy { get; set; }
-
-    public DateTime? LastModifiedDateTime { get; set; }
-
-    public long? DeletedBy { get; set; }
-
-    public DateTime? DeletedDateTime { get; set; }
 }
 
 

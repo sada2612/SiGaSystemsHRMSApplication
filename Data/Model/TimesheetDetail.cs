@@ -1,15 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using SiGaHRMS.Data.Model.Entity;
+using SiGaHRMS.Data.Model.Enum;
 using System.ComponentModel.DataAnnotations;
-using Siga_Hrms.Data.Enum;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class TimeSheetDetail
+public class TimeSheetDetail : FullAuditedEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long TimeSheetDetailId { get; set; }
-    
+
     [Required]
     [MaxLength(2000)]
     public string Task { get; set; }

@@ -1,15 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using SiGaHRMS.Data.Model.Entity;
+using SiGaHRMS.Data.Model.Enum;
 using System.ComponentModel.DataAnnotations;
-using Siga_Hrms.Data.Enum;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class Timesheet
+public class Timesheet : FullAuditedEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long TimesheetId { get; set; }
-    
+
     [Required]
     public DateTime TimesheetDate { get; set; }
 

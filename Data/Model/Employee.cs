@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using SiGaHRMS.Data.Model.Entity;
+using SiGaHRMS.Data.Model.Enum;
 using System.ComponentModel.DataAnnotations;
-using Siga_Hrms.Data.Enum;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class Employee
+public class Employee : FullAuditedEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,7 +21,7 @@ public class Employee
     public User User { get; set; }
 
     [ForeignKey("TeamLead")]
-    public long? TeamLeadId { get; set; } 
+    public long? TeamLeadId { get; set; }
 
     public Employee TeamLead { get; set; }
 

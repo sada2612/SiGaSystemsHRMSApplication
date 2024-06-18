@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Siga_Hrms.ApiService.Interfaces;
-using Siga_Hrms.Data.Model;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SiGaHRMS.ApiService.Interfaces;
+using SiGaHRMS.Data.Model;
 
-namespace Siga_Hrms.ApiService.Controllers;
+namespace SiGaHRMS.ApiService.Controllers;
 
 /// <summary>
 /// User Controller 
 /// </summary>
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
@@ -26,6 +28,7 @@ public class UserController : ControllerBase
     /// The controller method to retrive all Users.
     /// </summary>
     /// <returns>returns list of Users</returns>
+    [Authorize]
     [HttpGet]
     public List<User> GetAllUsers()
     {
@@ -62,7 +65,7 @@ public class UserController : ControllerBase
     [HttpPut]
     public async Task UpdateUserAsync(User user)
     {
-         await _userService.UpdateUserAsync(user);
+        await _userService.UpdateUserAsync(user);
     }
 
     /// <summary>

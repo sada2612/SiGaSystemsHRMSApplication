@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SiGaHRMS.Data.Model.Entity;
+using System.ComponentModel.DataAnnotations;
 
-namespace Siga_Hrms.Data.Model;
+namespace SiGaHRMS.Data.Model;
 
-public class LeaveMaster
+public class LeaveMaster : FullAuditedEntity
 {
-    [Key]        
+    [Key]
     public int LeaveMasterId { get; set; }
 
     [Required]

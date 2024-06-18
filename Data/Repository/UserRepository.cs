@@ -1,9 +1,9 @@
-﻿using Siga_Hrms.Data.Interfaces;
-using Siga_Hrms.Data.Model;
-using Siga_Hrms.Data.DataContext;
+﻿using SiGaHRMS.Data.DataContext;
+using SiGaHRMS.Data.Interfaces;
+using SiGaHRMS.Data.Model;
 
 
-namespace Siga_Hrms.Data.Repository;
+namespace SiGaHRMS.Data.Repository;
 
 public class UserRepository : GenericRepository<User>, IUserRepository
 {

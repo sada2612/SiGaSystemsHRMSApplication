@@ -1,9 +1,8 @@
-﻿using Siga_Hrms.ApiService.Helper;
-using Siga_Hrms.ApiService.Interfaces;
-using Siga_Hrms.Data.Interfaces;
-using Siga_Hrms.Data.Model;
+﻿using SiGaHRMS.ApiService.Interfaces;
+using SiGaHRMS.Data.Interfaces;
+using SiGaHRMS.Data.Model;
 
-namespace Siga_Hrms.ApiService.Service;
+namespace SiGaHRMS.ApiService.Service;
 
 public class UserService : IUserService
 {
@@ -24,8 +23,6 @@ public class UserService : IUserService
     /// <inheritdoc/>
     public async Task AddUserAsync(User user)
     {
-        user.PasswordSalt = PasswordHelper.GenerateSalt();
-        user.PasswordPhrase = PasswordHelper.HashPassword(user.PasswordPhrase, user.PasswordSalt);
 
         await _userRepository.AddAsync(user);
         await _userRepository.CompleteAsync();
@@ -62,13 +59,4 @@ public class UserService : IUserService
         _logger.LogInformation($"[DeleteUserAsync] - User deleted successfully for the {userId}");
     }
 
-    public async Task<bool> VerifyUserAsync(string userName, string password)
-    {
-        var user = await _userRepository.
-            FirstOrDefaultAsync(x => x.UserName == userName);
-        if (user == null)
-            return false;
-
-        return PasswordHelper.VerifyPassword(password, user.PasswordPhrase, user.PasswordSalt);
-    }
 }

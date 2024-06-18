@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Siga_Hrms.Data.Interfaces;
+namespace SiGaHRMS.Data.Interfaces;
 
 /// <summary>
 /// Generic repository to Add, Update, Delete, Read fuctionality.

@@ -1,9 +1,10 @@
-﻿using Siga_Hrms.Data.Model;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SiGaHRMS.Data.Model;
 
-namespace Siga_Hrms.Data.DataContext;
+namespace SiGaHRMS.Data.DataContext;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext
 {
     /// <summary>
     /// Initializes a new instance of see ref<paramref name="AppDbContext"/>
@@ -37,8 +38,6 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        
 
         modelBuilder.Entity<Timesheet>()
         .HasOne(lr => lr.ApproverEmployee)
